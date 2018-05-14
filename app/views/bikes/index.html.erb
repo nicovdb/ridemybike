@@ -3,7 +3,7 @@
 <h1>BIKES</h1>
 
 <% @bikes.each do |bike| %>
-  <p><%= bike.title%></p>
+  <%= link_to bike.title, bike_path(bike) %>
   <p><%= bike.category%></p>
   <p><%= bike.description%></p>
   <p><%= bike.title%></p>
