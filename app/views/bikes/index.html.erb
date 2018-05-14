@@ -2,7 +2,10 @@
 
 <h1>BIKES</h1>
 
+
+
 <% @bikes.each do |bike| %>
+<%= cl_image_tag bike.photo, height: 300, width: 400, crop: :fill %>
   <%= link_to bike.title, bike_path(bike) %>
   <p><%= bike.category%></p>
   <p><%= bike.description%></p>
