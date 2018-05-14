@@ -15,7 +15,7 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(set_params)
-    @bike.user = User.find(params[:id])
+    @bike.user = current_user
     if @bike.save
       redirect_to @bike
     else
