@@ -13,6 +13,11 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(set_params)
+    if @bike.save
+      redirect_to bike_path(params[:id])
+    else
+      render :new
+    end
   end
 
   private
