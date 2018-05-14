@@ -6,3 +6,11 @@
 <p><%= @bike.description %></p>
 
 <%= link_to "< back list", bikes_path %>
+
+
+<%= simple_form_for (@reservation) do |f| %>
+<%= f.input :date %>
+<%= f.input :status %>
+<%= f.input :rating %>
+<%= f.button :submit %>
+<% end %>
