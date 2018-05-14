@@ -8,7 +8,7 @@
 <%= link_to "< back list", bikes_path %>
 
 
-<%= simple_form_for (@reservation) do |f| %>
+<%= simple_form_for ([@bike, @reservation]) do |f| %>
 <%= f.input :date %>
 <%= f.button :submit %>
 <% end %>
