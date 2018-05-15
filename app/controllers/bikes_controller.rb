@@ -3,7 +3,7 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show]
 
   def index
-    @bikes = policy.scope(Bike)
+    @bikes = policy_scope(Bike)
   end
 
   def show
