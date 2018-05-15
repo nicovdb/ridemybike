@@ -1,15 +1,20 @@
 .card {
   height: 500px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-color: white;
-  color: #14AB09FF;
+  color: rgba(150,150,150,1);
   position: relative;
   box-shadow: 2px 2px 2px #C1C1C1FF;
   border-radius: 3px;
 
 }
 
-.card-photo{
+.card:hover {
+  background-color: rgba(150,150,150,1);
+  color: white;
+  transition: 0.5s;
+}
+
+.card-photo {
   border-radius: 2px;
   height: 60%;
   background-size: cover;
@@ -17,8 +22,14 @@
 }
 
 .card-photo:hover {
-    color: rgba(200,200,200,0.3);
-    transition: 0.5s;
+
 }
+
+.card-infos {
+  padding: 15px;
+}
+
+
+
 
 
