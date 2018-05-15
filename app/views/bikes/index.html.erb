@@ -6,7 +6,7 @@
         <div class="card-photo" style="background-image: url('<%= default_path_photo(bike) %>');">
         </div>
         <div class="card-infos">
-          <h2><%= bike.title %></h2>
+          <h2><%= link_to bike.title, bike_path(bike) %></h2>
           <h3><%= bike.category %></h3>
           <p><%= bike.description %></p>
         </div>
