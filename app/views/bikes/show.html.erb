@@ -1,4 +1,5 @@
-<h1>SHOW bike</h1>
+<%= link_to "< Back to list", bikes_path %>
+
 
 <%= default_photo(@bike) %>
 
@@ -6,10 +7,28 @@
 <p><%= @bike.category %></p>
 <p><%= @bike.description %></p>
 
-<%= link_to "< back list", bikes_path %>
+<div class="bike">
+  <div class="bike-infos">
+    <h1><%= @bike.title %></h1>
+    <div class="bike-photo">
+      <% if @bike.photo.present? %>
+        <%= cl_image_tag @bike.photo, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag("photo_uniq.png", height: 300, width: 400, crop: :fill) %>
+      <% end %>
+    </div>
 
 
-<%= simple_form_for ([@bike, @reservation]) do |f| %>
-<%= f.input :date %>
-<%= f.button :submit %>
-<% end %>
+    <div class="bike-description">
+      <p> <strong>Category:</strong>  <%= @bike.category %></p>
+      <p> <strong>Description:</strong> <%= @bike.description %></p>
+    </div>
+  </div>
+
+  <div class="bike-reservation">
+    <%= simple_form_for ([@bike, @reservation]) do |f| %>
+    <%= f.input :date, as: :string, label: "Riding day?", input_html: { class: "datepicker", data: { modal: true, "large-mode": true}, "data-theme": "date-style" } %>
+    <%= f.button :submit, "Book!", { class: "btn btn-success"} %>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 module ApplicationHelper
+end
 
   def default_photo(record)
     if record.photo.present?
@@ -16,5 +17,3 @@ module ApplicationHelper
     end
   end
 
-
-end
