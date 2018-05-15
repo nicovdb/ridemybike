@@ -22,8 +22,3 @@
   <%= link_to "New bike", new_bike_path %>
 <% end %>
 
-<% @bikes.each do |bike| %>
-  <% if policy(bike).edit? %>
-    <%= link_to "Update", edit_bike_path(restaurant) %>
-  <% end %>
-<% end %>
