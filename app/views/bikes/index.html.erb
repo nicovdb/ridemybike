@@ -5,14 +5,18 @@
 
 
 <% @bikes.each do |bike| %>
-  <div class="card">
-    <div class="card-image">
+<div class="card">
+  <div class="card-photo">
+    <% if bike.photo.present? %>
       <%= cl_image_tag bike.photo, height: 300, width: 400, crop: :fill %>
-    </div>
-    <div class="card-content">
-      <h3><%= link_to bike.title, bike_path(bike) %></h3>
-      <h4><%= bike.category%></h4>
-      <p><%= bike.description%></p>
-    </div>
+    <% else %>
+       <%= image_tag("photo_uniq.png", height: 300, width: 400, crop: :fill )  %>
+    <% end %>
   </div>
+  <card class="infos">
+    <h3><%= link_to bike.title, bike_path(bike) %></h3>
+    <h4><%= bike.category%></h4>
+    <p><%= bike.description%></p>
+  </card>
+</div>
 <% end %>
