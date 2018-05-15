@@ -2,7 +2,7 @@
 
 <%= simple_form_for @bike do |f| %>
   <%= f.input :title %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: Bike::CATEGORIES %>
   <%= f.input :description %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
