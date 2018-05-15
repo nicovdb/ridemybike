@@ -27,7 +27,7 @@ class BikesController < ApplicationController
   private
 
   def set_params
-    params.require(:bike).permit(:title, :category, :description)
+    params.require(:bike).permit(:title, :category, :description, :photo)
   end
 
   def set_bike
