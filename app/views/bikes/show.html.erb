@@ -19,8 +19,8 @@
 
   <div class="bike-reservation">
     <%= simple_form_for ([@bike, @reservation]) do |f| %>
-    <%= f.input :date, label: "When ?" %>
-    <%= f.button :submit, "Book!", { class: "btn btn-primary"} %>
+    <%= f.input :date, as: :string, label: "Riding day?", input_html: { class: "datepicker", data: { modal: true, "large-mode": true}, "data-theme": "date-style" } %>
+    <%= f.button :submit, "Book!", { class: "btn btn-success"} %>
     <% end %>
   </div>
 </div>
