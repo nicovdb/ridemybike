@@ -1,6 +1,15 @@
 <h1>Reservations</h1>
+<h3>The bikes you want to rent</h3>
 <% @reservations.each do |reservation| %>
   <p> Annonce <%= reservation.bike.title %> =>
   <%= reservation.date %>
   <%= reservation.bike.user.email %> </p>
 <% end %>
+
+<h3>Your bikes to accept</h3>
+<% @reservations.each do |reservation| %>
+  <p> Annonce <%= reservation.bike.title %> =>
+  <%= reservation.date %>
+  <%= reservation.bike.user.email %> </p>
+<% end %>
+
