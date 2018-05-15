@@ -5,8 +5,14 @@
 
 
 <% @bikes.each do |bike| %>
-<%= cl_image_tag bike.photo, height: 300, width: 400, crop: :fill %>
-  <%= link_to bike.title, bike_path(bike) %>
-  <p><%= bike.category%></p>
-  <p><%= bike.description%></p>
+  <div class="card">
+    <div class="card-image">
+      <%= cl_image_tag bike.photo, height: 300, width: 400, crop: :fill %>
+    </div>
+    <div class="card-content">
+      <h3><%= link_to bike.title, bike_path(bike) %></h3>
+      <h4><%= bike.category%></h4>
+      <p><%= bike.description%></p>
+    </div>
+  </div>
 <% end %>
