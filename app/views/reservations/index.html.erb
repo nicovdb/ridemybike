@@ -4,6 +4,13 @@
   <p> Annonce <%= reservation.bike.title %> =>
   <%= reservation.date %>
   <%= reservation.bike.user.email %> </p>
+  <% if reservation.status == nil %>
+    <p>Status: Pending </p>
+  <% elsif reservation.status == "t" %>
+    <p>ACCEPTED!</p>
+  <% else %>
+    <p>REFUSED!</p>
+  <%end %>
 <% end %>
 
 <h3>Your bikes to accept</h3>
