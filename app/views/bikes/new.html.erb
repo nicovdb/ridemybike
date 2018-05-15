@@ -1,12 +1,20 @@
-<h1>Add a bike</h1>
+<div class="container">
+  <div class="block">
+    <div class="col-xs-12 col-md-6 col-lg-6">
 
-<%= simple_form_for @bike do |f| %>
-  <%= f.input :title %>
-  <%= f.input :category, collection: Bike::CATEGORIES %>
-  <%= f.input :description %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit %>
-<% end %>
+        <h1>Add a bike</h1>
 
-<%= link_to "< Back to Bikes", bikes_path %>
+          <%= simple_form_for @bike do |f| %>
+            <%= f.input :title %>
+            <%= f.input :category, collection: Bike::CATEGORIES %>
+            <%= f.input :description %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.button :submit %>
+          <% end %>
+
+        <%= link_to "< Back to Bikes", bikes_path %>
+
+    </div>
+  </div>
+</div>
