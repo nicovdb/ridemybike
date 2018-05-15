@@ -1,6 +1,37 @@
 <h1>Reservations</h1>
+<h3>The bikes you want to rent</h3>
 <% @reservations.each do |reservation| %>
   <p> Annonce <%= reservation.bike.title %> =>
   <%= reservation.date %>
   <%= reservation.bike.user.email %> </p>
+  <% if reservation.status == nil %>
+    <p>Status: Pending </p>
+  <% elsif reservation.status == "t" %>
+    <p>ACCEPTED!</p>
+  <% else %>
+    <p>REFUSED!</p>
+  <%end %>
 <% end %>
+
+<h3>Your bikes to accept</h3>
+
+<% if current_user.bikes.empty? %>
+  <%= link_to "ADD YOUR BIKE", new_bike_path, class: "btn btn-success" %>
+<% else %>
+  <% current_user.bikes.each do |bike| %>
+    <% bike.reservations.each do |reservation|%>
+    <p> Annonce => <%= reservation.bike.title %> </p>
+    <p> <%= reservation.date %> </p>
+      <p> Loueur => <%= reservation.user.first_name %> <%= reservation.user.last_name %> </p>
+      <p> Phone:  <%= reservation.user.phone_number %> </p>
+      <% if reservation.status == nil %>
+        <%= link_to "Accept", accepted_path(reservation), class: "btn-accept btn-primary", method: :patch %> <%= link_to "Refuse", refused_path(reservation), class: "btn-refuse btn-danger", method: :patch %>
+        <% elsif reservation.status == "t" %>
+          <p>ACCEPTED!</p>
+        <% else %>
+          <p>REFUSED!</p>
+      <%end %>
+    <% end %>
+  <% end %>
+<% end %>
+

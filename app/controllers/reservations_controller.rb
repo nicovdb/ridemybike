@@ -17,6 +17,19 @@ class ReservationsController < ApplicationController
     @reservations = policy_scope(Reservation.where(user_id: current_user))
   end
 
+  def accepted?
+    @reservation = Reservation.find(params[:id])
+    @reservation.status = true
+    @reservation.save
+    redirect_to reservations_path
+  end
+
+  def refused?
+    @reservation = Reservation.find(params[:id])
+    @reservation.status = false
+    @reservation.save
+    redirect_to reservations_path
+  end
   private
 
   def reservation_params
