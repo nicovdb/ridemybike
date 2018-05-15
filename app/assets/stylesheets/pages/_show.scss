@@ -1,0 +1,28 @@
+.bike {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 700px;
+  margin: auto auto;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: rgb(252,252,252);
+}
+
+.bike-infos {
+  width: 400px;
+  margin: 20px;
+  margin-left: 45px;
+}
+
+.bike-reservation {
+  margin: 20px;
+  margin-right: 45px;
+}
+
+.bike-photo {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bike-description {
+  padding-top: 15px;
+}

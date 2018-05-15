@@ -1,0 +1,45 @@
+.card {
+  height: 500px;
+  background-color: white;
+  color: rgba(150,150,150,1);
+  position: relative;
+  box-shadow: 2px 2px 2px #C1C1C1FF;
+  border-radius: 3px;
+
+}
+
+.card:hover {
+  background-color: rgba(150,150,150,1);
+  color: white;
+  transition: 0.5s;
+}
+
+.card-photo {
+  border-radius: 2px;
+  height: 60%;
+  background-size: cover;
+  background-position: center center;
+}
+
+
+.card-infos {
+  padding: 15px;
+
+  a {
+    color: rgba(50,50,50,0.5);
+    text-decoration: none;
+    transition: 0.5s;
+  }
+
+  a:hover {
+    border: 1px solid rgba(50,50,50,0.5);
+    padding: 5px 10px;
+    border-radius: 3px;
+
+  }
+}
+
+
+
+
+
