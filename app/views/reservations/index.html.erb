@@ -8,8 +8,10 @@
 
 <h3>Your bikes to accept</h3>
 <% @reservations.each do |reservation| %>
-  <p> Annonce <%= reservation.bike.title %> =>
-  <%= reservation.date %>
-  <%= reservation.bike.user.email %> </p>
+  <% if reservation.bike.user == current_user %>
+    <p> Annonce <%= reservation.bike.title %> =>
+    <%= reservation.date %>
+    <%= reservation.bike.user.email %> </p>
+  <% end %>
 <% end %>
 
