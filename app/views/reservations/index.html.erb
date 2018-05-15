@@ -13,8 +13,10 @@
 <% else %>
   <% current_user.bikes.each do |bike| %>
     <% bike.reservations.each do |reservation|%>
-      <p>Nom du loueur => <%= reservation.user.email %> </p>
+    <p> Annonce => <%= reservation.bike.title %> </p>
+      <p>Nom du loueur => <%= reservation.user.first_name %> </p>
       <p> <%= reservation.date %> </p>
+
       <% end %>
   <% end %>
 <% end %>
