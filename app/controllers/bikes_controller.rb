@@ -21,7 +21,7 @@ class BikesController < ApplicationController
     authorize @bike
     if @bike.save
       redirect_to @bike
-    elseauthorize @bike
+    else authorize @bike
       render :new
     end
   end
