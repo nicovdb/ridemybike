@@ -7,16 +7,12 @@
 <% @bikes.each do |bike| %>
 <div class="card">
   <div class="card-photo">
-    <% if bike.photo.present? %>
-      <%= cl_image_tag bike.photo, height: 300, width: 400, crop: :fill %>
-    <% else %>
-       <%= image_tag("photo_uniq.png", height: 300, width: 400, crop: :fill )  %>
-    <% end %>
+    <%= default_photo(bike) %>
   </div>
-  <card class="infos">
+  <div class="infos">
     <h3><%= link_to bike.title, bike_path(bike) %></h3>
     <h4><%= bike.category%></h4>
     <p><%= bike.description%></p>
-  </card>
+  </div>
 </div>
 <% end %>
