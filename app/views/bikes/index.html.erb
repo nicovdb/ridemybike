@@ -5,7 +5,11 @@
 
 
 <% @bikes.each do |bike| %>
-<%= cl_image_tag bike.photo, height: 300, width: 400, crop: :fill %>
+  <% if bike.photo.present? %>
+    <%= cl_image_tag bike.photo, height: 300, width: 400, crop: :fill %>
+  <% else %>
+     <%= image_tag("photo_uniq.png", height: 300, width: 400, crop: :fill )  %>
+  <% end %>
   <%= link_to bike.title, bike_path(bike) %>
   <p><%= bike.category%></p>
   <p><%= bike.description%></p>

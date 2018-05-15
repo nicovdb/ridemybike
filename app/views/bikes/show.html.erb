@@ -1,6 +1,11 @@
 <h1>SHOW bike</h1>
 
-<%= cl_image_tag @bike.photo, height: 300, width: 400, crop: :fill %>
+  <% if @bike.photo.present? %>
+    <%= cl_image_tag @bike.photo, height: 300, width: 400, crop: :fill %>
+  <% else %>
+    <%= image_tag("photo_uniq.png", height: 300, width: 400, crop: :fill) %>
+  <% end %>
+
 <p><%= @bike.title %></p>
 <p><%= @bike.category %></p>
 <p><%= @bike.description %></p>
