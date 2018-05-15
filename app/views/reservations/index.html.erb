@@ -25,7 +25,7 @@
       <p> Loueur => <%= reservation.user.first_name %> <%= reservation.user.last_name %> </p>
       <p> Phone:  <%= reservation.user.phone_number %> </p>
       <% if reservation.status == nil %>
-        <%= link_to "Accept", accepted_path(reservation), class: "btn-accept btn-primary", method: :patch %> <%= link_to "Refuse", refused_path(reservation), class: "btn-refuse btn-danger", method: :patch %>
+        <%= button_to "Accept", accepted_path(reservation), method: :patch, class: "btn-accept btn-primary" %> <%= link_to "Refuse", refused_path(reservation), method: :patch, class: "btn-refuse btn-danger" %>
         <% elsif reservation.status == "t" %>
           <p>ACCEPTED!</p>
         <% else %>
