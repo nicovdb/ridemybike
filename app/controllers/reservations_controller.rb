@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to reservations_path
     else
-      render "bikes/:id/show"
+      render "bikes/show"
     end
   end
 
