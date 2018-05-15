@@ -3,11 +3,12 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show]
 
   def index
-    @bikes = Bike.all
+    @bikes = policy.scope(Bike)
   end
 
   def show
     @reservation = Reservation.new
+    authorize @bike
   end
 
   def new
@@ -21,7 +22,7 @@ class BikesController < ApplicationController
     authorize @bike
     if @bike.save
       redirect_to @bike
-    else authorize @bike
+    else
       render :new
     end
   end
