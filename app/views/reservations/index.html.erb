@@ -7,11 +7,15 @@
 <% end %>
 
 <h3>Your bikes to accept</h3>
-<% @reservations.each do |reservation| %>
-  <% if reservation.bike.user == current_user %>
-    <p> Annonce <%= reservation.bike.title %> =>
-    <%= reservation.date %>
-    <%= reservation.bike.user.email %> </p>
+
+<% if current_user.bikes.empty? %>
+  <p> tu n'as pas de vélo</p>
+<% else %>
+  <% current_user.bikes.each do |bike| %>
+    <% bike.reservations.each do |reservation|%>
+      <p>Nom du loueur => <%= reservation.user.email %> </p>
+      <p> <%= reservation.date %> </p>
+      <% end %>
   <% end %>
 <% end %>
 
