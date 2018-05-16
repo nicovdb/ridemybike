@@ -1,0 +1,32 @@
+.reservations {
+  display: flex;
+  justify-content: space-around;
+}
+
+.client-reservations {
+  width: 40%;
+}
+
+.owner-reservations {
+  width: 40%;
+}
+
+.reservation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: rgb(252,252,252);
+}
+
+.reservation-status {
+  margin: 10px;
+}
+
+.reservation-infos {
+  margin: 10px;
+}
+
+.reservation-photo {
+  margin: 10px;
+}
