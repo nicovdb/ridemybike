@@ -1,11 +1,13 @@
 
-<div class="form-inline research">
-  <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
-    <%= f.input :category, collection: Bike::CATEGORIES %>
-    <%= f.input :address, placeholder: 'Bordeaux' %>
-    <%= f.button :submit, class: "btn btn-success" %>
-  <% end %>
-</div>
+  <div class="wrapper">
+    <div class="form-inline research">
+      <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
+        <%= f.input :category, collection: Bike::CATEGORIES %>
+        <%= f.input :address, placeholder: 'Bordeaux' %>
+        <%= f.button :submit, class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
 
 <div class="main_container">
 
@@ -25,8 +27,8 @@
           <div class="card-photo" style="background-image: url('<%= default_path_photo(bike) %>');">
           </div>
           <div class="card-infos">
-            <h3><%= link_to bike.title, bike_path(bike) %></h3>
-            <h4><%= bike.category %></h4>
+            <h6><strong><%= link_to bike.title, bike_path(bike) %></strong></h6>
+            <P><%= bike.category %></p>
             <p><%= bike.description %></p>
           </div>
         </div>

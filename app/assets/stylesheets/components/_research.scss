@@ -1,8 +1,16 @@
 .research {
   display: flex;
   justify-content: space-around;
-  margin: 20px;
+
+
+
+}
+
+.wrapper {
   position: sticky !important;
-  top: calc(20% - 70px);
+  top: calc(20% - 84px);
   z-index: 2;
+  background-color: rgb(244, 244, 244);
+  margin: 0px;
+
 }
