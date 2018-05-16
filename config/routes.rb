@@ -8,9 +8,6 @@ Rails.application.routes.draw do
 
 
   resources :bikes, only: [:index, :new, :create, :show] do
-    collection do
-      get 'search'
-    end
     resources :reservations, only: :create, shallow: true
   end
   resources :reservations, only: :index

@@ -4,6 +4,10 @@ class BikesController < ApplicationController
 
   def index
     @bikes = policy_scope(Bike)
+
+    if params.dig(:search, :category).present?
+      @bikes = @bikes.where
+    end
   end
 
   def show
@@ -25,6 +29,10 @@ class BikesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def search
+
   end
 
   private

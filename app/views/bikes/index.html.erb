@@ -1,3 +1,11 @@
+<div>
+  <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
+    <%= f.input :category, collection: Bike::CATEGORIES %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+
+
 <div class="container">
   <div class="row">
   <% @bikes.each do |bike| %>
