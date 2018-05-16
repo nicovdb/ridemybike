@@ -5,14 +5,23 @@ class BikesController < ApplicationController
   def index
 
     @bikes = policy_scope(Bike)
+
     if params.dig(:search, :category).present?
       # @bikes = @bikes.where(address: set_params_search[:address], category: set_params_search[:category]).order(:created_at)
       @bikes = @bikes.where("address ILIKE ?", "%#{params[:search][:address]}%")
         #category: params[:search][:category]).order(:created_at)
-
     else
       @bikes = policy_scope(Bike)
     end
+
+    @bikes_map = Bike.where.not(latitude: nil, longitude: nil)
+
+    @markers = @bikes_map.map do |bike|
+      {
+       lat: bike.latitude,
+       lng: bike.longitude#,
+       # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
   end
 
   def show

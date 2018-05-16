@@ -7,7 +7,6 @@
         <% @reservations.each do |reservation| %>
           <div class="reservation">
             <div class="reservation-photo">
-              <p> <%= reservation.date %> </p>
               <%= cl_image_tag reservation.bike.photo, height: 60, width: 80, crop: :fill %>
             </div>
             <div class="reservation-infos">
@@ -15,6 +14,7 @@
               <p> <%= reservation.bike.description %> </p>
               <p> Owner name: <%= reservation.bike.user.first_name %> <%= reservation.bike.user.last_name %></p>
               <p> Owner email: <%= reservation.bike.user.email %> </p>
+              <p> <%= reservation.date %></p>
             </div>
 
             <div class="reservation-status">
@@ -47,13 +47,13 @@
 
               <div class="reservation">
                 <div class="reservation-photo">
-                  <p> <%= reservation.date %> </p>
                   <%= cl_image_tag reservation.bike.photo, height: 60, width: 80, crop: :fill %>
                 </div>
                 <div class="reservation-infos">
                   <h4> <%= reservation.bike.title %> </h4>
                   <p> Client's name: <%= reservation.user.first_name %> <%= reservation.user.last_name %> </p>
                   <p> Client's email:  <%= reservation.user.email %> </p>
+                  <p> <%= reservation.date %> </p>
                 </div>
 
                 <div class="reservation-status">

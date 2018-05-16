@@ -1,6 +1,8 @@
 class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
+    date = params[:reservation][:date]
+    @reservation.date = DateTime.strptime(date, '%m/%d/%Y')
     @bike = Bike.find(params[:bike_id])
     @reservation.bike = @bike
     @reservation.user = current_user
@@ -35,6 +37,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user, :bike, :date, :status, :rating)
+    params.require(:reservation).permit(:user, :bike, :status, :rating)
   end
 end

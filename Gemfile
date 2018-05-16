@@ -19,9 +19,11 @@ gem 'webpacker'
 gem 'devise'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
-gem "pundit"
 gem 'faker'
-gem "geocoder"
+gem 'pundit'
+gem 'geocoder'
+
+
 
 
 group :development do
