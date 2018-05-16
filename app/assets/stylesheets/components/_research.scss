@@ -1,5 +1,8 @@
 .research {
-display: flex;
-justify-content: space-around;
-margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+  position: sticky !important;
+  top: calc(20% - 70px);
+  z-index: 2;
 }
