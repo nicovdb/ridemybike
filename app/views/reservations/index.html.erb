@@ -61,9 +61,9 @@
                     <%= button_to "Accept", accepted_path(reservation), method: :patch, class: "btn btn-success" %>
                     <%= button_to "Refuse", refused_path(reservation), method: :patch, class: "btn btn-danger" %>
                   <% elsif reservation.status == "t" %>
-                    <h4>ACCEPTED</h4>
+                    <i class="fa fa-check-circle fa-4x" ></i>
                   <% else %>
-                    <h4>REFUSED</h4>
+                    <i class="fa fa-ban fa-4x"></i>
                   <%end %>
                 </div>
               </div>

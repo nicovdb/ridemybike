@@ -2,6 +2,7 @@
   "name": "ridemybike",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
     "@rails/webpacker": "3.5",
     "bootstrap": "3",
     "datedropper3": "^3.0.0",
