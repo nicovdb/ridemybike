@@ -23,7 +23,6 @@
   margin: 20px;
   padding: auto 10px;
   border-radius: 3px;
-
 }
 
 .reservation-status {
@@ -41,4 +40,16 @@
   max-width: 40px;
   margin: 10px;
   padding: 10px;
+}
+
+.btn {
+  margin: 10px;
+}
+
+.fa-check-circle {
+  color: rgb(126, 222, 0);
+}
+
+.fa-ban {
+  color: $red;
 }
