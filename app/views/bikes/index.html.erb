@@ -1,5 +1,5 @@
 
-<div class="form-inline">
+<div class="form-inline research">
   <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
     <%= f.input :category, collection: Bike::CATEGORIES %>
     <%= f.input :address, placeholder: 'Bordeaux' %>
