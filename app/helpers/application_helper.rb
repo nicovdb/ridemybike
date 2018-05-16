@@ -1,13 +1,14 @@
 module ApplicationHelper
-end
 
-  def default_photo(record)
+  def avatar_photo(record)
+    options = {class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"}
     if record.photo.present?
-      cl_image_tag record.photo
+      cl_image_tag(record.photo, options)
     else
-      image_tag("photo_uniq.png")
+      image_tag('photo_uniq.png', options)
     end
   end
+
 
   def default_path_photo(record)
     if record.photo.present?
@@ -16,4 +17,5 @@ end
       image_path('photo_uniq.png')
     end
   end
+end
 
