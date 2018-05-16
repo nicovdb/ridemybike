@@ -1,10 +1,11 @@
 .card {
-  height: 500px;
+  height: 600px;
   background-color: white;
   color: rgba(150,150,150,1);
   position: relative;
   box-shadow: 2px 2px 2px #C1C1C1FF;
   border-radius: 3px;
+  margin-bottom: 20px;
 
 
   a {
@@ -29,8 +30,9 @@
     border-radius: 3px;
     text-decoration: none;
     transition: 0.5s;
+    max-width: 10%;
   }
-  h3, p {
+  h4, p {
     display: none;
   }
 }
@@ -49,6 +51,17 @@
   flex-direction: column;
 
 
+}
+
+.main_container {
+  display: flex;
+}
+
+#map {
+  flex: 0 0 400px;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 70px;
 }
 
 
