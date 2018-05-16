@@ -6,7 +6,7 @@ class BikesController < ApplicationController
     @bikes = policy_scope(Bike)
 
     if params.dig(:search, :category).present?
-      @bikes = @bikes.where
+      @bikes = @bikes.where(address: set_params_search, category: set_params_search)
     end
   end
 
@@ -38,7 +38,12 @@ class BikesController < ApplicationController
   private
 
   def set_params
-    params.require(:bike).permit(:title, :category, :description, :photo)
+    params.require(:bike).permit(:title, :category, :description, :photo, :address, :category)
+
+  end
+
+  def set_params_search
+    params.require(:search).permit(:address, :category)
   end
 
   def set_bike
