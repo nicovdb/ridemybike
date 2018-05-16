@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container reservations">
 
   <div class="client-reservations">
     <div class="row">
@@ -58,7 +58,7 @@
 
                 <div class="reservation-status">
                   <% if reservation.status == nil %>
-                    <%= button_to "Accept", accepted_path(reservation), method: :patch, class: "btn btn-success" %> 
+                    <%= button_to "Accept", accepted_path(reservation), method: :patch, class: "btn btn-success" %>
                     <%= button_to "Refuse", refused_path(reservation), method: :patch, class: "btn btn-danger" %>
                   <% elsif reservation.status == "t" %>
                     <h4>ACCEPTED</h4>
