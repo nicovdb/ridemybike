@@ -32,7 +32,6 @@ portraits = [
   phone_number: Faker::PhoneNumber.phone_number,
   email: Faker::Internet.email,
   photo: portraits.sample,
-  address: Faker::Address.street_address,
   password: "123456"
   )
 end
@@ -52,6 +51,7 @@ users = User.all
   category: Bike::CATEGORIES.sample,
   user: users.sample,
   description: Faker::ChuckNorris.fact,
+  address: Faker::Address.street_address,
   remote_photo_url: pictures.sample
 )
 end
