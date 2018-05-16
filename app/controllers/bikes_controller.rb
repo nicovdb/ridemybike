@@ -3,7 +3,16 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show]
 
   def index
+
     @bikes = policy_scope(Bike)
+
+    if params.dig(:search, :category).present?
+      # @bikes = @bikes.where(address: set_params_search[:address], category: set_params_search[:category]).order(:created_at)
+      @bikes = @bikes.where("address ILIKE ?", "%#{params[:search][:address]}%")
+        #category: params[:search][:category]).order(:created_at)
+    else
+      @bikes = policy_scope(Bike)
+    end
 
     @bikes_map = Bike.where.not(latitude: nil, longitude: nil)
 
@@ -13,7 +22,6 @@ class BikesController < ApplicationController
        lng: bike.longitude#,
        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
-    end
   end
 
   def show
@@ -40,8 +48,13 @@ class BikesController < ApplicationController
   private
 
   def set_params
-    params.require(:bike).permit(:title, :category, :description, :photo)
+    params.require(:bike).permit(:title, :category, :description, :photo, :address, :category)
+
   end
+
+  # def set_params_search
+  #   params.require(:search).permit(:address, :category)
+  # end
 
   def set_bike
     @bike = Bike.find(params[:id])

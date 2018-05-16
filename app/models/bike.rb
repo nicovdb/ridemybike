@@ -9,7 +9,7 @@ class Bike < ApplicationRecord
     "Tandem",
     "Rosalie",
     "Tricycle"
-]
+  ]
 
   validates :category, inclusion: { in: CATEGORIES }
   validates :description, presence: true
