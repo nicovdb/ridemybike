@@ -3,10 +3,12 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show]
 
   def index
-    @bikes = policy_scope(Bike)
 
+    @bikes = policy_scope(Bike)
     if params.dig(:search, :category).present?
-      @bikes = @bikes.where(address: set_params_search, category: set_params_search)
+      @bikes = @bikes.where(address: set_params_search[:address], category: set_params_search[:category])
+    else
+      @bikes = policy_scope(Bike)
     end
   end
 
