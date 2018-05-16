@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :password])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :photo])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :password, :photo])
   end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

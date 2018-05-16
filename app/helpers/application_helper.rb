@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def avatar_photo(record)
-    options = {class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"}
+    options = { class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" }
     if record.photo.present?
       cl_image_tag(record.photo, options)
     else
