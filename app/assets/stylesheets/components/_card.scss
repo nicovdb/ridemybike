@@ -8,6 +8,7 @@
   box-shadow: 2px 2px 2px #C1C1C1FF;
   border-radius: 3px;
   margin-bottom: 20px;
+  z-index: -1;
 
 
   a {
@@ -57,6 +58,13 @@
   padding: 15px;
   display: flex;
   flex-direction: column;
+
+  p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+
 }
 
 .main_container {

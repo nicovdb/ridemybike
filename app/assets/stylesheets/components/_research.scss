@@ -9,8 +9,27 @@
 .wrapper {
   position: sticky !important;
   top: calc(20% - 84px);
-  z-index: 2;
-  background-color: rgb(244, 244, 244);
+  z-index: 0;
   margin: 0px;
+}
 
+@media (max-width: 800px) {
+  .wrapper {
+    top: 200px;
+  }
+}
+@media (max-width: 1000px) {
+  .wrapper {
+    top: 300px;
+  }
+}
+@media (max-width: 1200px) {
+  .wrapper {
+    top: 150px;
+  }
+}
+@media (max-width: 2000px) {
+  .wrapper {
+    top: 60px;
+  }
 }
