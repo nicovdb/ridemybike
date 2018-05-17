@@ -22,6 +22,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'faker'
 gem 'pundit'
 gem 'geocoder'
+gem 'sweetAlert', '~> 0.1.2'
 
 
 
