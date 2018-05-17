@@ -43,7 +43,14 @@ address = [
   "9 Rue Constantine, 69001 Lyon",
   "34 Quai du Port, 13002 Marseille",
   "10 Boulevard du Prince de Galles, 64200 Biarritz",
-  "23 Avenue la Fayette, 17300 Rochefort"
+  "23 Avenue la Fayette, 17300 Rochefort",
+  "83 Quai des Chartrons, 33300 Bordeaux",
+  "10 Place du Marché Chartrons, 33000 Bordeaux",
+  "15 Rue Rode, 33000 Bordeaux",
+  "174 Cours du Médoc, 33300 Bordeaux",
+  "5 Passage Ruelle, 75018 Paris",
+  "27 Rue de Condé, 75006 Paris",
+  "25 Rue Villiot, 75012 Paris"
 ]
 
 pictures = [
@@ -56,7 +63,7 @@ pictures = [
 
 users = User.all
 
-20.times do Bike.create!(
+40.times do Bike.create!(
   title: Faker::Book.title,
   category: Bike::CATEGORIES.sample,
   user: users.sample,

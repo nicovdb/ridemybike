@@ -13,10 +13,4 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   } else {
     map.fitLatLngBounds(markers);
   }
-  var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    icon: 'logo_vert.png'
-  });
 }
