@@ -49,6 +49,8 @@ class BikesController < ApplicationController
   def collection
     @bike = Bike.new
     authorize @bike
+
+    @user = current_user
   end
 
   private

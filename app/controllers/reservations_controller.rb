@@ -24,7 +24,7 @@ class ReservationsController < ApplicationController
     @reservation.status = true
     authorize @reservation
     @reservation.save
-    redirect_to reservations_path
+    redirect_to collection_path
   end
 
   def refused
@@ -32,7 +32,7 @@ class ReservationsController < ApplicationController
     @reservation.status = false
     authorize @reservation
     @reservation.save
-    redirect_to reservations_path
+    redirect_to collection_path
   end
   private
 
