@@ -21,10 +21,12 @@ class BikesController < ApplicationController
     end
 
     @bikes = @bikes.where.not(latitude: nil, longitude: nil)
+    image = ActionController::Base.helpers.asset_path("logo_velo.png")
     @markers = @bikes.map do |bike|
       {
        lat: bike.latitude,
-       lng: bike.longitude
+       lng: bike.longitude,
+       icon: image
       }
     end
   end
