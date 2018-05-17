@@ -1,79 +1,35 @@
-<div class="container reservations">
-
-  <div class="client-reservations">
+<div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-10">
         <h3>Your reservations</h3>
         <% @reservations.each do |reservation| %>
+        <div class="col-md-8 col-md-offset-2">
+
           <div class="reservation">
             <div class="reservation-photo">
-              <%= cl_image_tag reservation.bike.photo, height: 60, width: 80, crop: :fill %>
+              <%= cl_image_tag reservation.bike.photo, height: 140, width: 170, crop: :fill %>
             </div>
+
             <div class="reservation-infos">
-              <h4> <%= reservation.bike.title %> </h4>
+              <h4> <strong><%= reservation.bike.title %></strong> </h4>
               <p> <%= reservation.bike.description %> </p>
-              <p> Owner name: <%= reservation.bike.user.first_name %> <%= reservation.bike.user.last_name %></p>
-              <p> Owner email: <%= reservation.bike.user.email %> </p>
-              <p> <%= reservation.date_begin %></p>
-              <p> <%= reservation.date_end %></p>
+              <p> <strong>Owner:</strong> <%= reservation.bike.user.first_name %> <%= reservation.bike.user.last_name %></p>
+              <p> <%= reservation.bike.user.email %> </p>
+              <p> <strong>From</strong> <%=reservation.date_begin %> <strong>to</strong> <%= reservation.date_end %></p>
             </div>
 
             <div class="reservation-status">
               <% if reservation.status == nil %>
-
                 <h4>Pending </h4>
-
               <% elsif reservation.status == "t" %>
                 <i class="fa fa-check-circle fa-4x" ></i>
               <% else %>
                 <i class="fa fa-ban fa-4x"></i>
               <%end %>
             </div>
+
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
-  </div>
 
-  <div class="owner-reservations">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-10">
-        <h3>Your bikes</h3>
-
-        <% if current_user.bikes.empty? %>
-          <%= link_to "ADD YOUR BIKE", new_bike_path, class: "btn btn-success" %>
-        <% else %>
-          <% current_user.bikes.each do |bike| %>
-            <% bike.reservations.each do |reservation|%>
-
-              <div class="reservation">
-                <div class="reservation-photo">
-                  <%= cl_image_tag reservation.bike.photo, height: 60, width: 80, crop: :fill %>
-                </div>
-                <div class="reservation-infos">
-                  <h4> <%= reservation.bike.title %> </h4>
-                  <p> Client's name: <%= reservation.user.first_name %> <%= reservation.user.last_name %> </p>
-                  <p> Client's email:  <%= reservation.user.email %> </p>
-                  <p> <%= reservation.date_begin %> </p>
-                  <p> <%= reservation.date_end %> </p>
-
-                </div>
-
-                <div class="reservation-status">
-                  <% if reservation.status == nil %>
-                    <%= button_to "Accept", accepted_path(reservation), method: :patch, class: "btn btn-success" %>
-                    <%= button_to "Refuse", refused_path(reservation), method: :patch, class: "btn btn-danger" %>
-                  <% elsif reservation.status == "t" %>
-                    <i class="fa fa-check-circle fa-4x" ></i>
-                  <% else %>
-                    <i class="fa fa-ban fa-4x"></i>
-                  <%end %>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
 </div>
