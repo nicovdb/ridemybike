@@ -1,13 +1,7 @@
 
-  <div class="wrapper">
-    <div class="form-inline research">
-      <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
-        <%= f.input :category, collection: Bike::CATEGORIES %>
-        <%= f.input :address, placeholder: 'Bordeaux' %>
-        <%= f.button :submit, class: "btn btn-success" %>
-      <% end %>
-    </div>
-  </div>
+<%= form_tag bikes_path, method: :get do %>
+  <%= text_field_tag :query, params[:query], class: "form-inline", placeholder: "Type an address" %>
+<% end %>
 
 <div class="main_container">
 
