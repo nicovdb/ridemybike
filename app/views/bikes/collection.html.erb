@@ -1,0 +1,59 @@
+<h1>My bikes</h1>
+
+<% @user.bikes.each do |bike|%>
+  <div class="container collection">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="collection-bike">
+          <div class="collection-bike-photo ">
+            <%= cl_image_tag bike.photo, height: 300, width: 450, crop: :fill %>
+          </div>
+          <div class="collection-bike-infos ">
+            <h4><%= bike.title %></h4>
+            <p><%= bike.description %></p>
+            <p>Address: <%= bike.address %></p>
+          </div>
+        </div>
+
+        <% if bike.reservations.empty? %>
+          <p>No reservations yet</p>
+        <% else %>
+          <div class="collection-reservations">
+            <% bike.reservations.each do |reservation| %>
+              <div class="collection-reservation">
+                <div class="collection-reservation-user-picture">
+                  <%= cl_image_tag reservation.user.photo, height: 50, width: 50, radius: "max", crop: :fill %>
+                </div>
+                <div class="collection-reservation-infos">
+                  <% if reservation.status == nil %>
+                    <p> <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
+                    wants to ride your bike from <strong> <%= reservation.date_begin %></strong>
+                    to <strong> <%= reservation.date_end %></strong> </p>
+                  <% elsif reservation.status == "t" %>
+                    <p> <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
+                    will ride your bike from <strong> <%= reservation.date_begin %></strong>
+                    to <strong> <%= reservation.date_end %></strong> </p>
+                  <% else %>
+                    <p> <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
+                    will not ride your bike from <strong> <%= reservation.date_begin %></strong>
+                    to <strong> <%= reservation.date_end %></strong> </p>
+                  <%end %>
+                </div>
+                <div class="collection-reservation-acception">
+                  <% if reservation.status == nil %>
+                    <%= button_to "Accept", accepted_path(reservation), method: :patch, class: "btn btn-success" %>
+                    <%= button_to "Refuse", refused_path(reservation), method: :patch, class: "btn btn-danger" %>
+                  <% elsif reservation.status == "t" %>
+                    <i class="fa fa-check-circle fa-3x" ></i>
+                  <% else %>
+                    <i class="fa fa-ban fa-3x"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

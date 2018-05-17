@@ -50,6 +50,13 @@ class BikesController < ApplicationController
     end
   end
 
+  def collection
+    @bike = Bike.new
+    authorize @bike
+
+    @user = current_user
+  end
+
   private
 
   def set_params

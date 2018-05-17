@@ -9,4 +9,8 @@ class BikePolicy < ApplicationPolicy
     true
   end
 
+  def collection?
+    true
+  end
+
 end

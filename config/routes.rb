@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   patch 'reservations/:id/accepted', to: 'reservations#accepted', as: 'accepted'
   patch 'reservations/:id/refused', to: 'reservations#refused', as: 'refused'
+  get 'bikes/collection', to: 'bikes#collection', as: 'collection'
 
 
   resources :bikes, only: [:index, :new, :create, :show] do
