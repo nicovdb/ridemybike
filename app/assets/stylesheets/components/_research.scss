@@ -1,9 +1,6 @@
 .research {
   display: flex;
   justify-content: space-around;
-
-
-
 }
 
 .wrapper {
@@ -15,17 +12,17 @@
 
 @media (max-width: 800px) {
   .wrapper {
-    top: 200px;
+    top: 60px;
   }
 }
 @media (max-width: 1000px) {
   .wrapper {
-    top: 300px;
+    top: 60px;
   }
 }
 @media (max-width: 1200px) {
   .wrapper {
-    top: 150px;
+    top: 60px;
   }
 }
 @media (max-width: 2000px) {

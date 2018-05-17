@@ -21,14 +21,14 @@
     <div class="row">
     <% @bikes.each do |bike| %>
 
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12 col-md-6">
         <div class="card">
 
           <div class="card-photo" style="background-image: url('<%= default_path_photo(bike) %>');"></div>
           <div class="card-infos">
             <h6><strong><%= link_to bike.title, bike_path(bike) %></strong></h6>
             <P><%= bike.category %></p>
-            <p><%= bike.address %></p>
+            <p class="card-address"><%= bike.address %></p>
           </div>
 
         </div>
