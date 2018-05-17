@@ -6,21 +6,26 @@ class BikesController < ApplicationController
 
     @bikes = policy_scope(Bike)
 
-    if params.dig(:search, :category).present?
-      # @bikes = @bikes.where(address: set_params_search[:address], category: set_params_search[:category]).order(:created_at)
-      @bikes = @bikes.where("address ILIKE ?", "%#{params[:search][:address]}%")
-        #category: params[:search][:category]).order(:created_at)
-    else
-      @bikes = policy_scope(Bike)
+
+    if params[:search].present?
+      sql_query = " \
+        bikes.title @@ :query \
+        OR bikes.category @@ :query \
+        OR bikes.address @@ :query \
+      "
+      @bikes = Bike.where(sql_query, query: "%#{params[:search][:query]} #{params[:search][:category]}%")
     end
 
-    @bikes_map = Bike.where.not(latitude: nil, longitude: nil)
-
-    @markers = @bikes_map.map do |bike|
+    if params.dig(:search).present?
+      @bikes = @bikes.where.not(latitude: nil, longitude: nil)
+      @bikes = @bikes.near(params[:search][:address], 25)
+    else
+      @bikes = @bikes.where.not(latitude: nil, longitude: nil)
+    end
+    @markers = @bikes.map do |bike|
       {
        lat: bike.latitude,
-       lng: bike.longitude#,
-       # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+       lng: bike.longitude
       }
     end
   end

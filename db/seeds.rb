@@ -36,6 +36,16 @@ portraits = [
   )
 end
 
+address = [
+  "160 avenue du général de gaulle, 17430 Tonnay-Charente",
+  "19 quai des Chartrons 33000 Bordeaux",
+  "17 Rue Tiquetonne, 75002 Paris",
+  "9 Rue Constantine, 69001 Lyon",
+  "34 Quai du Port, 13002 Marseille",
+  "10 Boulevard du Prince de Galles, 64200 Biarritz",
+  "23 Avenue la Fayette, 17300 Rochefort"
+]
+
 pictures = [
 "https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.decouvriruzes.fr%2Fwp-content%2Fuploads%2F2013%2F02%2Fvelo-femme.jpg&f=1",
 "https://www.amsterdamair.fr/14332-thickbox_default/velo-hollandais-double-dutch-low-premium.jpg",
@@ -51,7 +61,7 @@ users = User.all
   category: Bike::CATEGORIES.sample,
   user: users.sample,
   description: Faker::ChuckNorris.fact,
-  address: Faker::Address.street_address,
+  address: address.sample,
   remote_photo_url: pictures.sample
 )
 end

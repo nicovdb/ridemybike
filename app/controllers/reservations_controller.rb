@@ -1,8 +1,10 @@
 class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
-    date = params[:reservation][:date]
-    @reservation.date = DateTime.strptime(date, '%m/%d/%Y')
+    date_begin = params[:reservation][:date_begin]
+    date_end = params[:reservation][:date_end]
+    @reservation.date_begin = DateTime.strptime(date_begin, '%m/%d/%Y')
+    @reservation.date_end = DateTime.strptime(date_end, '%m/%d/%Y')
     @bike = Bike.find(params[:bike_id])
     @reservation.bike = @bike
     @reservation.user = current_user
