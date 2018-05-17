@@ -1,8 +1,8 @@
 
 <div class="form-inline research">
   <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
-    <%= f.input :category, collection: Bike::CATEGORIES %>
-    <%= f.input :address, placeholder: 'Bordeaux' %>
+    <%= f.input :category, collection: Bike::CATEGORIES, required: false %>
+    <%= f.input :address, placeholder: 'Bordeaux', required: false %>
     <%= f.button :submit, class: "btn btn-success" %>
   <% end %>
 </div>

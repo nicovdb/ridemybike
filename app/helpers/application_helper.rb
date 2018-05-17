@@ -17,5 +17,6 @@ module ApplicationHelper
       image_path('photo_uniq.png')
     end
   end
+
 end
 
