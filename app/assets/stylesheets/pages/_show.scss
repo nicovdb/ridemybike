@@ -3,9 +3,10 @@
   justify-content: space-around;
   align-items: center;
   width: 700px;
-  margin: auto auto;
+  margin: 50px auto;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   background-color: rgb(252,252,252);
+  border-radius: 3px;
 }
 
 .bike-infos {
@@ -21,9 +22,26 @@
 
 .bike-photo {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
 
 }
 
 .bike-description {
   padding-top: 15px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .bike {
+    width: 700px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .bike {
+    width: 350px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .bike {
+    width: 100px;
+  }
 }
