@@ -6,10 +6,14 @@ class BikesController < ApplicationController
 
     @bikes = policy_scope(Bike)
 
-    if params.dig(:search, :category).present?
-      # @bikes = @bikes.where(address: set_params_search[:address], category: set_params_search[:category]).order(:created_at)
-      @bikes = @bikes.where("address ILIKE ?", "%#{params[:search][:address]}%")
-        #category: params[:search][:category])
+
+    if params[:search].present?
+      sql_query = " \
+        bikes.title @@ :query \
+        OR bikes.category @@ :query \
+        OR bikes.address @@ :query \
+      "
+      @bikes = Bike.where(sql_query, query: "%#{params[:search][:query]} #{params[:search][:category]}%")
     end
 
     if params.dig(:search).present?

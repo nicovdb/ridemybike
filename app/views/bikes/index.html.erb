@@ -1,37 +1,47 @@
 
-<div class="form-inline research">
-  <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
-    <%= f.input :category, collection: Bike::CATEGORIES, required: false %>
-    <%= f.input :address, placeholder: 'Bordeaux', required: false %>
-    <%= f.button :submit, class: "btn btn-success" %>
+<div class="form form-inline">
+  <%= simple_form_for :search, url: bikes_path, method: :get do |f| %>
+    <%= f.input :query, as: :string, input_html: { value: params[:query] }, label: false, class: "form-control", placeholder: "Type an address" %>
+    <%= f.input :category, collection: Bike::CATEGORIES, label: false, class: "form-control", placeholder: "Chose a category" %>
+    <%= f.button :submit, 'Yippee Kaye!', class: "btn btn-primary" %>
   <% end %>
 </div>
 
+<%= form_tag bikes_path, method: :get do %>
+  <%= text_field_tag :query, params[:query], class: "form-inline", placeholder: "Type an address" %>
+<% end %>
+
 <div class="main_container">
 
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-></div>
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+  ></div>
 
 
   <div class="container">
+
     <div class="row">
     <% @bikes.each do |bike| %>
+
       <div class="col-xs-12 col-sm-6">
         <div class="card">
-          <div class="card-photo" style="background-image: url('<%= default_path_photo(bike) %>');">
-          </div>
+
+          <div class="card-photo" style="background-image: url('<%= default_path_photo(bike) %>');"></div>
           <div class="card-infos">
-            <h3><%= link_to bike.title, bike_path(bike) %></h3>
-            <h4><%= bike.category %></h4>
+            <h6><strong><%= link_to bike.title, bike_path(bike) %></strong></h6>
+            <P><%= bike.category %></p>
             <p><%= bike.description %></p>
           </div>
+
         </div>
       </div>
+
     <% end %>
     </div>
+
   </div>
+
 </div>
