@@ -1,11 +1,21 @@
 .collection {
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  background-color: rgb(252,252,252);
+  background-color: rgb(255,255,255);
   border-radius: 3px;
   margin-bottom: 30px;
+  .btn {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
 }
+
+.collection-bike-photo {
+  margin-top: 10px;
+}
+
+
 
 .collection-bike {
   display: flex;
@@ -13,6 +23,10 @@
 
 .collection-bike-infos {
   padding: 15px;
+  p {
+    width: 200px;
+    word-wrap: break-word;
+  }
 }
 
 .collection-reservations {
@@ -25,8 +39,8 @@
   align-items: center;
   justify-items: center;
   margin: 15px;
-  border: 1px solid rgb(150,150,150);
   border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .collection-reservation-user-picture {
