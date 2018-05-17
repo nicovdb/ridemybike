@@ -6,13 +6,13 @@ class BikesController < ApplicationController
 
     @bikes = policy_scope(Bike)
 
-    if params[:query].present?
+    if params[:search].present?
       sql_query = " \
         bikes.title @@ :query \
         OR bikes.category @@ :query \
         OR bikes.address @@ :query \
       "
-      @bikes = Bike.where(sql_query, query: "%#{params[:query]}%")
+      @bikes = Bike.where(sql_query, query: "%#{params[:search][:query]} #{params[:search][:category]}%")
     else
       @bikes = policy_scope(Bike)
     end
