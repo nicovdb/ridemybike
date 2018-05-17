@@ -13,15 +13,14 @@ class BikesController < ApplicationController
         OR bikes.category @@ :query \
         OR bikes.address @@ :query \
       "
-      @bikes = Bike.where(sql_query, query: "%#{params[:search][:query]} #{params[:search][:category]}%")
+      @bikes = @bikes.where(sql_query, query: "%#{params[:search][:query]} #{params[:search][:category]}%")
     end
 
-    if params.dig(:search).present?
-      @bikes = @bikes.where.not(latitude: nil, longitude: nil)
-      @bikes = @bikes.near(params[:search][:address], 25)
-    else
-      @bikes = @bikes.where.not(latitude: nil, longitude: nil)
+    if @bikes.empty?
+      @bikes = Bike.near(params[:search][:query], 50)
     end
+
+    @bikes = @bikes.where.not(latitude: nil, longitude: nil)
     @markers = @bikes.map do |bike|
       {
        lat: bike.latitude,
