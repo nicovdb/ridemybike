@@ -10,9 +10,12 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Add a bike", new_bike_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My reservations", reservations_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My bikes", collection_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% if  current_user.bikes.empty? %>
+        <%= link_to "Add a bike", new_bike_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% else %>
+        <%= link_to "My bikes", collection_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
