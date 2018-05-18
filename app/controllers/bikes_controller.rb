@@ -47,7 +47,7 @@ class BikesController < ApplicationController
     authorize @bike
     if @bike.save
       sleep 1
-      redirect_to bikes_path
+      redirect_to collection_path
     else
       sleep 1
       render :new
