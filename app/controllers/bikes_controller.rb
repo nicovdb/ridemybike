@@ -45,11 +45,10 @@ class BikesController < ApplicationController
     @bike = Bike.new(set_params)
     @bike.user = current_user
     authorize @bike
+    sleep 1
     if @bike.save
-      sleep 1
       redirect_to collection_path
     else
-      sleep 1
       render :new
     end
   end
