@@ -2,7 +2,7 @@
 <div class="wrapper">
   <div class="research form form-inline">
     <%= simple_form_for :search, url: bikes_path, method: :get do |f| %>
-      <%= f.input :query, as: :string, input_html: { value: params[:query] }, label: false, class: "form-control", placeholder: "Type an address" %>
+      <%= f.input :query, as: :string, input_html: { value: params[:query], id: "flat_address" }, label: false, class: "form-control", placeholder: "Type an address" %>
       <%= f.input :category, collection: Bike::CATEGORIES, label: false, class: "form-control", placeholder: "Chose a category" %>
       <%= f.button :submit, 'Yippee Kaye!', class: "btn btn-primary" %>
     <% end %>
@@ -14,7 +14,7 @@
 
     <div id="map" class="hidden-xs hidden-sm" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
 
-  <div class="container-fluid">
+  <div class="cards-container container-fluid">
 
 
 

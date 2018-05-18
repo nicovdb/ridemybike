@@ -1,3 +1,4 @@
+
 .card {
   height: 400px;
   justify-content: space-between;
@@ -76,8 +77,8 @@
 }
 
 #map {
-  flex: 0 0 400px;
-  height: 100vh;
+  flex: 0 0 500px;
+  height: 100%;
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: calc(10% + 54px);
 }

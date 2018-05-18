@@ -29,12 +29,17 @@ h3 {
   justify-content: space-around;
   padding: 10px;
   .collection-bike-photo {
+    background-size: cover;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
 
   .collection-bike-infos {
+
     margin: 0px;
-    padding: 0px;
+    padding-left: 10px;
   }
 }
 
