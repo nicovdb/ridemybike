@@ -20,7 +20,7 @@ class BikesController < ApplicationController
       @bikes = Bike.near(params[:search][:query], 50)
     end
 
-    @bikes = @bikes.where.not(latitude: nil, longitude: nil)
+    @bikes = @bikes.where.not(latitude: nil, longitude: nil).order(created_at: :desc)
     image = ActionController::Base.helpers.asset_path("logo_velo_small.png")
     @markers = @bikes.map do |bike|
       {
@@ -57,6 +57,7 @@ class BikesController < ApplicationController
     authorize @bike
 
     @user = current_user
+    @user_bikes = @user.bikes.order(created_at: :desc)
   end
 
   private
