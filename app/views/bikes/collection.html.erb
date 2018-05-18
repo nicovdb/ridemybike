@@ -1,11 +1,11 @@
 <h3>My bikes</h3>
 
   <div class="container">
+    <div class="row text-center">
+     <%= link_to "Add a bike", new_bike_path, class: "btn btn-success green" %>
+    </div>
 
     <div class="row">
-     <%= link_to "Add a bike", new_bike_path, class: "btn btn-success" %>
-
-
 
       <% @user_bikes.each do |bike|%>
       <div class="col-md-8 col-md-offset-2">
