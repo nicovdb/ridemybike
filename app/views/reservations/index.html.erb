@@ -13,6 +13,7 @@
               <h4> <strong><%= reservation.bike.title %></strong> </h4>
               <p> <%= reservation.bike.description %> </p>
               <p> <strong>Owner:</strong> <%= reservation.bike.user.first_name %> <%= reservation.bike.user.last_name %></p>
+              <p> <%= reservation.bike.user.phone_number %> </p>
               <p> <%= reservation.bike.user.email %> </p>
               <p> <strong>From</strong> <%=reservation.date_begin %> <strong>to</strong> <%= reservation.date_end %></p>
             </div>
