@@ -1,6 +1,7 @@
 import swal from 'sweetalert';
 
 
+
 function bindSweetAlertButtonDemo() {
   document.querySelector('.alert_sweet').addEventListener('click', () => {
     swal({
