@@ -5,9 +5,10 @@ import swal from 'sweetalert';
 function bindSweetAlertButtonDemo() {
   document.querySelector('.alert_sweet').addEventListener('click', () => {
     swal({
-      title: "Reservation!",
+      title: "Bike created!",
       text: "Ride my bike!",
-      icon: "success"
+      icon: "success",
+      button: false
     })
   });
 }
