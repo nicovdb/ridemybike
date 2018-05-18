@@ -11,18 +11,30 @@
   position: sticky !important;
   top: 0px;
   z-index: 1;
+
 }
 
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+  opacity: 0.8;
+}
+
+.navbar-wagon-brand img:hover {
+  opacity: 1;
+  transition: 0.5s;
 }
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
+}
+
+.navbar-wagon .avatar:hover {
+  transition: 0.5s;
+  border: 2px solid #55AA00FF;
 }
 
 /* Right section */
@@ -44,8 +56,9 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #55AA00FF;
   text-decoration: none;
+  transition: 0.5s;
 }
 
 /* Dropdown menu */
@@ -65,7 +78,8 @@
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: #55AA00FF !important;
+  transition: 0.5s;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
