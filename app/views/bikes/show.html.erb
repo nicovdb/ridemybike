@@ -1,17 +1,17 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8">
       <div class="bike">
 
         <div class="bike-infos">
           <h1><%= @bike.title %></h1>
-          <div class="bike-photo">
+          <!-- <div class="bike-photo"> -->
             <% if @bike.photo.present? %>
-              <%= cl_image_tag @bike.photo, height: 300, width: 400, crop: :fill %>
+              <%= cl_image_tag @bike.photo, height: 350 %>
             <% else %>
-              <%= image_tag("photo_uniq.png", height: 300, width: 400, crop: :fill) %>
+              <%= image_tag("photo_uniq.png", height: 250, width: 400, crop: :fill) %>
             <% end %>
-          </div>
+          <!-- </div> -->
 
           <div class="bike-description">
             <p> <strong>Category:</strong>  <%= @bike.category %></p>
